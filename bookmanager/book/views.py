@@ -15,4 +15,17 @@ from django.http import HttpRequest,HttpResponse
 # 来访问视图函数
 
 def index(request):
-    return HttpResponse('ok')
+    # return HttpResponse('ok')
+    """
+    render 渲染模板
+    request, template_name, context=None
+    request,           请求
+    template_name,    模板名字
+    context=None
+    100/0
+    """
+    # 模拟数据查询
+    context = {
+        'name': 'templates test'
+    }
+    return render(request, 'book/index.html', context=context)
