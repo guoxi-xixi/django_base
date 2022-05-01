@@ -20,7 +20,11 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 # See https://docs.djangoproject.com/en/3.2/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
+<<<<<<< HEAD
 SECRET_KEY = 'django-insecure-6z&1vvd_qqf-rnp^&cqic2@h@t2#a&o7dpdlay*6!hnl#6o(3j'
+=======
+SECRET_KEY = 'django-insecure-c1yz-gzl(i6le@81ybd4qt0b8d*adv*r8d508t3e42wa5jq1+9'
+>>>>>>> 32ddfde56f03b297456e2d3f10ad838c26b1a901
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
@@ -29,7 +33,11 @@ ALLOWED_HOSTS = []
 
 
 # Application definition
+<<<<<<< HEAD
 # 注册子应用
+=======
+
+>>>>>>> 32ddfde56f03b297456e2d3f10ad838c26b1a901
 INSTALLED_APPS = [
     'django.contrib.admin',
     'django.contrib.auth',
@@ -37,8 +45,11 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+<<<<<<< HEAD
     # 'book',  # 方案一：注册子应用
     'book.apps.BookConfig'  # 方案二：注册子应用
+=======
+>>>>>>> 32ddfde56f03b297456e2d3f10ad838c26b1a901
 ]
 
 MIDDLEWARE = [
