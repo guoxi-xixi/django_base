@@ -24,3 +24,4 @@ urlpatterns = [
     # path('book/', include('book.urls'))
     path('', include('book.urls'))
 ]
+ 

@@ -23,9 +23,14 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = 'django-insecure-6z&1vvd_qqf-rnp^&cqic2@h@t2#a&o7dpdlay*6!hnl#6o(3j'
 
 # SECURITY WARNING: don't run with debug turned on in production!
+
+# 调试模式
+# 在我们开发的时候，我们需要看到更多的信息，所以要开启debug模式
+# 当我们的程序上线之后，就改为False
 DEBUG = True
 
-ALLOWED_HOSTS = []
+# 允许以什么样的形式来访问我们的项目 默认是 127.0.0.1
+ALLOWED_HOSTS = ['*']
 
 
 # Application definition
@@ -56,8 +61,8 @@ ROOT_URLCONF = 'bookmanager.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [os.path.join(BASE_DIR, 'templates')],
-        # 'DIRS': [BASE_DIR / 'templates'],
+        # 'DIRS': [os.path.join(BASE_DIR, 'templates')],
+        'DIRS': [BASE_DIR / 'templates'],   # 3.2.13 新写法
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
@@ -121,6 +126,10 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/3.2/howto/static-files/
 
 STATIC_URL = '/static/'
+# 静态资源路径
+STATICFILES_DIRS = [
+    BASE_DIR / 'static'
+]
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/3.2/ref/settings/#default-auto-field
