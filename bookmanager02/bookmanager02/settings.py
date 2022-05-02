@@ -77,11 +77,11 @@ WSGI_APPLICATION = 'bookmanager02.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.mysql',
-        'HOST': '127.0.0.1',
+        'HOST': '192.168.0.109',
         'PORT': 3306,
         'USER': 'root',
-        'PASSWORD': '12345',
-        'NAME': 'book',
+        'PASSWORD': 'xixi666...',
+        'NAME': 'book', # 数据库名
     }
 }
 
