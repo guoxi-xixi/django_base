@@ -1,5 +1,6 @@
 from django.http import HttpResponse, JsonResponse
 from django.shortcuts import render, redirect
+
 from book.models import BookInfo
 
 # Create your views here.
@@ -226,3 +227,72 @@ def get_session(request):
     content = '{},{}'.format(user_id,username)
 
     return HttpResponse(content)
+
+###############################类视图###################################
+def login(requset):
+    print(requset.method)
+
+    if requset.method == 'GET':
+        return HttpResponse('get 请求')
+    else:
+        return HttpResponse('post 请求')
+
+"""
+类视图定义
+类视图的定义
+
+class 类视图名字（View）:
+    
+    def get(self,request):
+        
+        return HttpResponse('xxx')
+    
+    def http_method_lower(self,request):
+    
+        return HttpResponse('xxx')
+        
+1. 继承自View
+2. 类视图中的方法 是采用 http方法小写来区分不同的请求方式
+"""
+from django.views import View
+
+class LoginView(View):
+
+    def get(self, request):
+        return HttpResponse('get 处理逻辑')
+
+    def post(self, request):
+        return HttpResponse('post 处理逻辑')
+
+"""
+我的订单、个人中心页面
+如果登录用户 可以访问
+如果未登录用户 不应该访问，应该跳转到登录页面
+
+定义一个订单、个人中心 类视图
+
+如果定义我有没有登录呢？？？ 我们以登录 后台站点为例
+"""
+from django.contrib.auth.mixins import LoginRequiredMixin
+
+# class OrderView(View):    # 只继承View类
+
+# class OrderView(View, LoginRequiredMixin):
+# 多继承LoginRequiredMixin 和 View类, 多继承有先后顺序
+
+class OrderView(LoginRequiredMixin, View):  # 多继承LoginRequiredMixin 和 View类
+
+    def get(self, request):
+
+        # 模拟登录标记
+        # isLogin = True
+        # if not isLogin:
+        #     return HttpResponse('未登录，跳转到登录页面')
+
+        return HttpResponse('GET 我的订单页面，这个页面必须要登录')
+
+    def post(self, request):
+        isLogin = True
+        # if not isLogin:
+        #     return HttpResponse('未登录，跳转到登录页面')
+        return HttpResponse('GET 我的订单页面，这个页面必须要登录')
